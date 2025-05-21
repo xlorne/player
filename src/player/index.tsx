@@ -3,7 +3,7 @@ import XGPPlayer from 'xgplayer';
 import 'xgplayer/dist/index.min.css';
 
 export interface PlayerAction{
-    setSrc: (url: string) => void;
+    setSourceUrl: (url: string) => void;
     play: () => void;
     stop: () => void;
 }
@@ -35,7 +35,7 @@ const Player: React.FC<PlayerProps> = (props) => {
 
     React.useImperativeHandle(props.playerAction,()=>{
         return {
-            setSrc: (url: string) => {
+            setSourceUrl: (url: string) => {
                 if (playerRef.current) {
                     playerRef.current.src = url;
                 }
@@ -60,7 +60,7 @@ const Player: React.FC<PlayerProps> = (props) => {
                 height: height
             }}
         >
-            <div id="player"></div>
+            <div id="player"/>
         </div>
     );
 }
